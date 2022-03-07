@@ -17,6 +17,6 @@ frigate=$(bashio::config 'frigate')
 
 
 ## Run your program
-exec /writeConfig ${debug} ${title} ${frigate} && \ # Launch python script to populate config.json file
+exec /writeConfig \'${debug}\' \'${title}\' \'${frigate}\' && \ # Launch python script to populate config.json file
      httpd && \ # start apache2
      sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite # Start sqlite_web
