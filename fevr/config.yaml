@@ -15,8 +15,10 @@ init: false
 panel_icon: mdi:cctv
 ports:
   8001/tcp: 8001
+  8002/tcp: 8002
 ports_description:
   8001/tcp: Web Interface
+  8002/tcp: sqlite_web
 ingress: true
 ingress_port: 8001
 ingress_entry: /
