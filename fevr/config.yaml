@@ -4,8 +4,6 @@ version: "0.3.6"
 slug: fevr
 description: frigate Event Video Recorder v0.3 HASSIO addon
 url: "https://github.com/beardedtek-com/fEVR/"
-options:
-schema:
 arch:
   - armhf
   - armv7
