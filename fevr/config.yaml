@@ -27,3 +27,12 @@ panel_icon: "mdi:cctv"
 panel_title: fEVR
 startup: services
 image: ghcr.io/beardedtek-com/{arch}-fevr
+options:
+  debug: "false"
+  title: "My Home"
+  frigate: "http://frigate.local:5000"
+schema:
+  debug: str
+  title: str
+  frigate: str
+  

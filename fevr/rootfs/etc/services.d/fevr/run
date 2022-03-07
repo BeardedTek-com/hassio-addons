@@ -7,10 +7,16 @@
 # Add your code here
 
 # Declare variables
-#declare message
-#declare sqlitewebPort
+declare debug
+declare title
+declare frigate
 ## Get the 'message' key from the user config options.
-#sqlitewebPort=$(bashio::config 'sqlitewebPort')
+debug=$(bashio::config 'debug')
+title=$(bashio::config 'title')
+frigate=$(bashio::config 'frigate')
+
 
 ## Run your program
-exec httpd && sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
+exec writeConfig ${debug} ${title} ${frigate} && \ # Launch python script to populate config.json file
+     httpd && \ # start apache2
+     sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite # Start sqlite_web

@@ -24,16 +24,17 @@ RUN rm -f /var/www/logs
 COPY rootfs /
 
 # get latest version of fEVR
-RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/
-RUN mkdir /var/www/logs && touch /var/www/logs/debug.log
-RUN mv /var/www/db/fEVR.blank.sqlite /var/www/db/fEVR.sqlite
-RUN mv /var/www/config/config-example.json /var/www/config/config.json
+RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/ \
+ && mkdir /var/www/logs && touch /var/www/logs/debug.log \
+ && mv /var/www/db/fEVR.blank.sqlite /var/www/db/fEVR.sqlite \
+ && mv /var/www/config/config-example.json /var/www/config/config.json
 
 # Setup CGI Environment
 RUN bash /enable_cgi.sh
 
-# Set permissions on /var/www
-RUN chown -R 100:101 /var/www
-RUN chmod -R 0770 /var/www
+# Set permissions
+RUN chown -R 100:101 /var/www \
+ && chmod -R 0770 /var/www \
+ && chmod +x /writeConfig
 
 
