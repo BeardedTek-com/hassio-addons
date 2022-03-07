@@ -13,4 +13,4 @@
 #sqlitewebPort=$(bashio::config 'sqlitewebPort')
 
 ## Run your program
-exec sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
+exec httpd && sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
