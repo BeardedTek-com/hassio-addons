@@ -1,7 +1,7 @@
-
 # fEVR
 ## frigate Event Video Recorder - pronounced [fee-ver]
-
+fEVR independently stores frigate events and provides an easy way to manage event notifications, recordings, and more using the power of Frigate and Home Assistant's APIs.
+![fEVR-0 3 3 Main](https://user-images.githubusercontent.com/93575915/155628108-99e39877-b57b-4c13-ba62-fcf1a04941ee.png)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
@@ -18,8 +18,7 @@
 ![fEVR-0 3 3 Main](https://user-images.githubusercontent.com/93575915/155628108-99e39877-b57b-4c13-ba62-fcf1a04941ee.png)
 
 ## Known Bugs
-- Modals do not work properly in Firefox
-  - I plan on fixing this in an upcoming release
+- Modals do not work properly in Firefox prior to Firefox 98 (currently in Beta)
   - For now Chromium derivatives work
 - [See Issues for other known bugs.](https://github.com/BeardedTek-com/fEVR/issues)
 
