@@ -9,7 +9,7 @@ RUN \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
 # Add apache2, python3 git
-RUN apk --no-cache add apache2 libxml2-dev apache2-utils apache2-mod-wsgi apache2-ssl py3-pip git
+RUN apk --no-cache add apache2 libxml2-dev apache2-utils apache2-mod-wsgi apache2-ssl py3-pip py3-pillow git
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Add python dependencies
