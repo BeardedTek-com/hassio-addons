@@ -26,4 +26,4 @@ panel_admin: false
 panel_icon: "mdi:cctv"
 panel_title: fEVR
 startup: services
-
+image: ghcr.io/beardedtek-com/{arch}-fevr
