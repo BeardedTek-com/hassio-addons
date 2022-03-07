@@ -16,7 +16,8 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # Install python dependencies
 RUN pip install pytz && \
     pip install python-dateutil && \
-    pip install requests
+    pip install requests && \
+    pip install sqlite_web
 
 # get latest version of fEVR
 RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/
