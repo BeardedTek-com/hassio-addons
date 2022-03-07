@@ -12,3 +12,12 @@ arch:
   - i386
 init: false
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
+panel_icon: mdi:cctv
+ports:
+  8001/tcp: 8001
+ports_description:
+  8001/tcp: Web Interface
+ingress: true
+ingress_port: 0
+ingress_stream: true
+startup: services
