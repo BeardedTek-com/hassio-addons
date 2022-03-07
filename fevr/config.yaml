@@ -4,6 +4,12 @@ version: "0.3.4"
 slug: hassio-fevr
 description: frigate Event Video Recorder v0.3 HASSIO addon
 url: "https://github.com/beardedtek-com/fEVR/"
+options:
+  frigate: "frigate.local:5000"
+  sqlitewebPort: "8002"
+schema:
+  frigateUrl: "match(^.+:\\d+$)"
+  sqlitewebPort: "match(^\d{4}$)"
 arch:
   - armhf
   - armv7
@@ -27,9 +33,3 @@ panel_icon: "mdi:cctv"
 panel_title: fEVR
 startup: services
 image: ghcr.io/beardedtek-com/{arch}-fevr
-options:
-  frigateUrl: "http(s)://<your_frigate_instance>(:5000) ## NO TRAILING SLASH!!!"
-  sqlite_port: "8002"
-schema:
-  frigateUrl: "str?"
-  sqlitewebPort: "str?"
