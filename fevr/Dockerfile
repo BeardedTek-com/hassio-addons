@@ -29,12 +29,10 @@ RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/ 
  && mv /var/www/db/fEVR.blank.sqlite /var/www/db/fEVR.sqlite \
  && mv /var/www/config/config-example.json /var/www/config/config.json
 
-# Setup CGI Environment
-RUN bash /enable_cgi.sh
-
-# Set permissions
-RUN chown -R 100:101 /var/www \
+# Setup CGI Environment & Set Permissions
+RUN bash /enable_cgi.sh \
+ && chown -R 100:101 /var/www \
  && chmod -R 0770 /var/www \
- && chmod +x /usr/local/bin/writeConfig
+ && chmod +x /writeConfig
 
 
