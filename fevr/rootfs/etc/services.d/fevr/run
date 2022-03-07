@@ -11,13 +11,9 @@
 declare frigateUrl
 declare sqlitewebPort
 ## Get the 'message' key from the user config options.
-#message=$(bashio::config 'message')
 frigateUrl=$(bashio::config 'frigateUrl')
 sqlitewebPort=$(bashio::config 'sqlitewebPort')
-## Print the message the user supplied, defaults to "Hello World..."
-#bashio::log.info "${message:="Hello World..."}"
 
 ## Run your program
-# exec my_program --with-params
 exec sqlite_web -p ${sqlitewebPort:="8002"} -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
 exec sed -i '/http:\/\/frigate.mydomain.com/c\${frigateUrl}' /var/www/config/config.json
