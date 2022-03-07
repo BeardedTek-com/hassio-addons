@@ -24,6 +24,7 @@ RUN rm -f /var/www/logs
 
 # get latest version of fEVR
 RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/
+RUN mkdir /var/www/logs && touch /var/www/logs/debug.log
 
 # Copy root filesystem
 COPY rootfs /
