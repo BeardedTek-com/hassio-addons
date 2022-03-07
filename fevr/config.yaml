@@ -18,6 +18,5 @@ ports:
 ports_description:
   8001/tcp: Web Interface
 ingress: true
-ingress_port: 0
-ingress_stream: true
+ingress_port: 8001
 startup: services
