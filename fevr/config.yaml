@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: fEVR
-version: "0.3.5"
+version: "0.3.6"
 slug: hassio-fevr
 description: frigate Event Video Recorder v0.3 HASSIO addon
 url: "https://github.com/beardedtek-com/fEVR/"
@@ -8,7 +8,7 @@ options:
   frigate: "frigate.local:5000"
   sqlitewebPort: "8002"
 schema:
-  frigateUrl: "match(^.+:\\d+$)"
+  frigateUrl: "match(^.+:\d+$)"
   sqlitewebPort: "match(^\d{4}$)"
 arch:
   - armhf
