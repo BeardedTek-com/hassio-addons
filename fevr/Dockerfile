@@ -27,5 +27,5 @@ COPY rootfs /
 RUN chown -R 33:1000 /var/www
 RUN chmod -R 0755 /var/www
 #RUN a2enmod fcgid
-RUN service apache2 restart
+#RUN service apache2 restart
 
