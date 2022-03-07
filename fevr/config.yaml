@@ -1,0 +1,14 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: fEVR
+version: "0.3"
+slug: fevr
+description: frigate Event Video Recorder v0.3
+url: "https://github.com/beardedtek-com/fEVR/"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+#image: "ghcr.io/home-assistant/{arch}-addon-example"
