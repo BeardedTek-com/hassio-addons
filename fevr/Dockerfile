@@ -26,6 +26,6 @@ RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/
 COPY rootfs /
 RUN chown -R 33:1000 /var/www
 RUN chmod -R 0755 /var/www
-RUN a2enmod fcgid
+#RUN a2enmod fcgid
 RUN service apache2 restart
 
