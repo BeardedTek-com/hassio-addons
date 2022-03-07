@@ -35,6 +35,6 @@ RUN bash /enable_cgi.sh
 # Set permissions
 RUN chown -R 100:101 /var/www \
  && chmod -R 0770 /var/www \
- && chmod +x /writeConfig
+ && chmod +x /usr/local/bin/writeConfig
 
 
