@@ -19,6 +19,9 @@ RUN pip install pytz && \
     pip install requests && \
     pip install sqlite_web
 
+# get rid of symlink /var/www/logs
+RUN rm -f /var/www/logs
+
 # get latest version of fEVR
 RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/
 
