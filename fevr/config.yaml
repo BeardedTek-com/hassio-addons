@@ -8,8 +8,8 @@ options:
   frigate: "frigate.local:5000"
   sqlitewebPort: "8002"
 schema:
-  frigateUrl: "match(^.+:\d+$)"
-  sqlitewebPort: "match(^\d{4}$)"
+  frigateUrl: "str$"
+  sqlitewebPort: "str$"
 arch:
   - armhf
   - armv7
