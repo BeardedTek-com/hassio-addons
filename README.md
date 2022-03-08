@@ -9,6 +9,7 @@ HASSIO Addons provided by BeardedTek.com
 This repository contains the following add-ons
 
 ### [fEVR](https://github.com/BeardedTek-com/hassio-addons/tree/main/fevr)
+frigate Event Video Recorder (pronounced fee-ver)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
@@ -18,7 +19,8 @@ This repository contains the following add-ons
 
 _Example add-on to use as a blueprint for new add-ons._
 
-### Chores (COMING SOON)
+### [Chores](https://github.com/BeardedTek-com/hassio-addons/tree/main/chores)
+An HTML5 Canvas / Javascript Chore Wheel with python/sqlite backend
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]

@@ -1,0 +1,27 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: chores
+version: "0.1.0"
+slug: chores
+description: HTML5 Canvas Javascript Chore Wheel python and sqlite backend
+url: "https://github.com/beardedtek-com/chores/"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+panel_icon: mdi:broom
+ports:
+  9001/tcp: 9001
+  9002/tcp: 9002
+ports_description:
+  9001/tcp: Web Interface
+  9002/tcp: sqlite_web
+ingress: true
+ingress_port: 8001
+ingress_entry: /
+panel_admin: false
+panel_title: chores
+startup: services
+image: ghcr.io/beardedtek-com/chores-{arch}
