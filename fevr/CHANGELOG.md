@@ -1,5 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 0.3.12
+## 0.3.13
+- Seperate out fEVR, apache2, and sqlite_web into their own services
+
+## 0.3.12: APACHE2 and SQLITE_WEB Fail to start
 - Update run command
 
 ## 0.3.11:  APACHE2 FAILS TO START

@@ -4,15 +4,13 @@
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
+# Add your code here
+
 # Declare variables
-declare debug
-declare title
-declare frigate
 
 ## Get the user config options.
-debug=$(bashio::config 'debug')
-title=$(bashio::config 'title')
-frigate=$(bashio::config 'frigate')
+
+
 
 ## Run your program
-exec /writeConfig \'${debug}\' \'${title}\' \'${frigate}\'
+exec httpd
