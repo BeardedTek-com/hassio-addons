@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.3.15
+- modify /etc/services.d
+  - add basic startup script for apache2
+
 ## 0.3.14
 - modify /etc/services.d
 

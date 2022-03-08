@@ -1,15 +1,9 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/execlineb -S1
 # ==============================================================================
-# Start the example service
+# Take down the S6 supervision tree when example fails
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
+if { s6-test ${1} -ne 0 }
+if { s6-test ${1} -ne 256 }
 
-# Add your code here
-
-# Declare variables
-
-## Get the user config options.
-
-
-## Run your program
-exec sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
+s6-svscanctl -t /var/run/s6/services
