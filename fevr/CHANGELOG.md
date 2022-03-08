@@ -1,5 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 0.3.13
+## 0.3.14
+- modify /etc/services.d
+
+## 0.3.13 httpd (pid 263) already running flooding the logs
 - Seperate out fEVR, apache2, and sqlite_web into their own services
 
 ## 0.3.12: APACHE2 and SQLITE_WEB Fail to start
