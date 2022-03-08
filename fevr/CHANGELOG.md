@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.3.20
+- modify /etc/services.d/fevr/run to avoid error in config.json
+
 ## 0.3.17
 - modify /etc/services.d
   - modify startup script for apache2

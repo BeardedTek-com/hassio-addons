@@ -15,4 +15,4 @@ title=$(bashio::config 'title')
 frigate=$(bashio::config 'frigate')
 
 ## Run your program
-exec /writeConfig \'${debug}\' \'${title}\' \'${frigate}\'
+exec /writeConfig "${debug}" "${title}" "${frigate}"
