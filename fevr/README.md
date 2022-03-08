@@ -1,24 +1,19 @@
 # fEVR
 ## frigate Event Video Recorder - pronounced [fee-ver]
-fEVR independently stores frigate events and provides an easy way to manage event notifications, recordings, and more using the power of Frigate and Home Assistant's APIs.
-![fEVR-0 3 3 Main](https://user-images.githubusercontent.com/93575915/155628108-99e39877-b57b-4c13-ba62-fcf1a04941ee.png)
+Written in python, pure HTML, pure javascript, and pure CSS.
+I want to include the minimum amount of frameworks as this will prevent breakage due to upstream changes.
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
-
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+### Cloud Instances of fEVR
+- I will be offering cloud instances of fEVR starting on March 31st.
+- See [My Sponsorship Page](https://github.com/sponsors/BeardedTek-com) for more details.
+#### Cloud BETA Testing
+- If you would like to beta test this feature, please let me know by submitting an issue.
 
 ![fEVR-0 3 3 Main](https://user-images.githubusercontent.com/93575915/155628108-99e39877-b57b-4c13-ba62-fcf1a04941ee.png)
 
 ## Known Bugs
-- Modals do not work properly in Firefox prior to Firefox 98 (currently in Beta)
+- Modals do not work properly in Firefox < 98
+  - Either upgrade to the Firefox Beta, wait for Firefox 98 to come out, or use a chromium derivative.
   - For now Chromium derivatives work
 - [See Issues for other known bugs.](https://github.com/BeardedTek-com/fEVR/issues)
 
@@ -36,54 +31,50 @@ git clone https://github.com/BeardedTek-com/fEVR.git
 ```
 - edit docker-compose.yml - change ports if necessary
 ```yml
-version: '2'
+version: '3'
 services:
   fevr:
-    image: 'beardedtek/fevr:latest'
+    image: ghcr.io/beardedtek/fevr-standalone:main
+    container_name: fevr-alpine
     restart: unless-stopped
     ports:
-      - '80:80'
+      - '8003:8001'
+      - '8004:8002'
     volumes:
-      - ./app:/var/www
+     - ./data/events:/var/www/html/events ##OPTIONAL: save events to a local folder
+     - ./data/fEVR.sqlite:/var/www/db/fEVR.sqlite ##OPTIONAL: save database file
+     - ./data/config.json:/var/www/config/config.json ##OPTIONAL: save config file locally
+     #- ./app:/var/www # FOR DEVELOPMENT - Exposes the entire stack to a local volume
+     # If you go with this option, take the following actions:
+     # git clone https://github.com/beardedtek-com/fevr
+     # cd fevr
+     # sudo chmod -R 100:101 app
+     # edit docker-compose.yml and comment out or remove first 3 volume definitions,
+     # uncomment 4th volume definition and run the container:
+     # docker-compose up -d
+     
+# Uncomment the following to map to an NFS share
+#    - nfsvolume:/var/www/html/events ##OPTIONAL: save events to an NFS volume
+#volumes:
+#  nfsvolume:
+#    driver_opts:
+#      type: "nfs"
+#      o: "addr=<your_nas_ip>,nfsvers=4" # Make sure to change to your NFS server's address
+#     #o: "addr=<your_nas_ip>,rw,nfsvers=4" < SOME NFS SHARES REQUIRE THIS!!!
+#      device: ":/path/to/your/nfs/share"
 ```
-The easiest way to get this running is via docker-compose.
-First, clone the repo and get all up in there:
+- Follow the instructions in docker-compose.yml
+- Run the container with docker-compose:
 ```
-git clone https://github.com/beardedtek-com/fEVR
-cd fEVR
+docker-compose up -d
 ```
-Set permissions for the app
-For development:
+- View apache2 error log
 ```
-sudo chown -R 33:1000 app
-sudo chmod -R 0770 app
+docker-compose exec fevr tail -n 50 -f /var/log/apache2/error*
 ```
-For non-development / pre-production:
-```
-sudo chmod -R 33:33 /app
-sudo chmod -R 0770 app
-```
-```
-cd docker
-sudo docker build -t beardedtek/fevr:latest
-```
-Bring it all up
-```
-sudo docker-compose up -d
-```
+- Configure Home Assistant Automation to feed the fevr with data:
 
-Go to the web interface and follow the prompts:
-http://<your_ip>:PORT/
-
-The config page will automatically come up if this is the first time you've run fEVR or if anything major is misconfigured.
-
-Once it's all up and running, you can run the following to see if there are any permission errors:
-- I plan on making this more userfriendly in a future release...
-```
-docker-compose exec fevr tail -n 50 -f /var/log/apache2/error.log
-```
-
-## Home Assistant Automation v2
+### Home Assistant Automation v2
 [v2 of the Home Assistant Automation](https://raw.githubusercontent.com/BeardedTek-com/fEVR/main/docs/automation.yml) adds a "break" using an input boolean helper.
 ```yaml
 - id: '1643335976518'
@@ -154,39 +145,36 @@ docker-compose exec fevr tail -n 50 -f /var/log/apache2/error.log
   mode: single
 ```
 
-## Main Display
+## Screenshots
+
+### Main Display
 ![fEVR-0 3 3 Main](https://user-images.githubusercontent.com/93575915/155628975-d61614ef-843c-4f82-ab99-add7e9de04b6.png)
 
-## Menu
+### Menu
 ![fEVR-0 3 3 Menu](https://user-images.githubusercontent.com/93575915/155628992-2fffd3d6-f5f6-407b-91b9-2f2a3c6a27bd.png)
 
-## Event View
+### Event View
 ![fEVR-0 3 3 Event Detail](https://user-images.githubusercontent.com/93575915/155629005-1f20d47e-a3c5-4bd0-b169-b87dc2848def.png)
 
-## Event Acknowledgement (shows or hides "new" label)
+### Event Acknowledgement (shows or hides "new" label)
 More to come on this in future releases
 ![fEVR-0 3 3 Acknowledge Event](https://user-images.githubusercontent.com/93575915/155629269-d8cd6581-88b5-4091-9cc2-546f859aadad.png)
 ![fEVR-0 3 3 Event Detail Acknowledged](https://user-images.githubusercontent.com/93575915/155629282-885b3159-685f-4864-a303-6cc30309b46f.png)
 ![fEVR-0 3 3 Unacknowledge Event](https://user-images.githubusercontent.com/93575915/155629293-1fd25823-7938-416d-b3c4-c0e12841a8ba.png)
 
 
-## Delete Event
+### Delete Event
 ![fEVR-0 3 3 Delete Event](https://user-images.githubusercontent.com/93575915/155629034-19fda859-cf84-4375-969c-68c52e414561.png)
 
-## Refresh Event
+### Refresh Event
 ![fEVR-0 3 3 Refresh Event](https://user-images.githubusercontent.com/93575915/155629084-54474c5c-bda1-4379-8751-c127faba3cd1.png)
 
-## Config
+### Config
 ![fEVR-0 3 3 Config-1](https://user-images.githubusercontent.com/93575915/155629116-7260056a-1d4b-4490-bacb-173a15477136.png)
 ![fEVR-0 3 3 Config-2](https://user-images.githubusercontent.com/93575915/155629125-f45f0ffb-a283-4ea5-a7f4-74882de10c38.png)
 
 
 ## Pull Requests welcome!
 Feel free to fork the project and submit pull requests.
-
-## I would really like the UI rewritten for such and such a framework
-If you wish to rewrite this with some fancy framework, please feel free to fork and submit a pull request against main.
-We can then start a new branch for that framework.  
-At this point, this branch of the UI will be supported only by you.
 
 Hope you find this useful.
