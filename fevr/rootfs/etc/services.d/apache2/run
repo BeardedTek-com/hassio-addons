@@ -12,4 +12,4 @@
 
 
 ## Run your program
-exec if ! $(ps | grep -v grep | grep -q httpd); then echo "apache2 not running. starting..."; httpd; fi
+exec bash /startapache2.sh
