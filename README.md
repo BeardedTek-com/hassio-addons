@@ -8,7 +8,7 @@ HASSIO Addons provided by BeardedTek.com
 
 This repository contains the following add-ons
 
-### [fEVR](./fEVR)
+### [fEVR](https://github.com/BeardedTek-com/hassio-addons/tree/main/fevr)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
