@@ -1,9 +1,9 @@
 # fEVR
 ## frigate Event Video Recorder - pronounced [fee-ver]
 
-[![BeardedTekSponsorCard][sponsor-card]][github-sponsors]
+[![BeardedTekSponsorCard][sponsor-card]](https://github.com/sponsors/BeardedTek-com)
+
 [sponsor-card]: https://user-images.githubusercontent.com/93575915/157555140-2890590f-62de-4f9a-a384-22a88f120daa.png
-[github-sponsors]: https://github.com/sponsors/BeardedTek-com
 
 ### Cloud Instances of fEVR
 - I will be offering cloud instances of fEVR starting on March 31st.
