@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.3.26
+- Update README
+
 ## 0.3.25
 - Build system failing for docker repository.
 - Image will temporarily be built on the user's machine until I can get it fixed.
