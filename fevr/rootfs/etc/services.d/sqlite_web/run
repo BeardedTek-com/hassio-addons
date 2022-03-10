@@ -12,4 +12,4 @@
 
 
 ## Run your program
-exec sqlite_web -p 8002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite
+exec sqlite_web -p 5002 -H 0.0.0.0 -x /var/www/db/fEVR.sqlite

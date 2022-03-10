@@ -10,9 +10,9 @@ declare title
 declare frigate
 
 ## Get the user config options.
-debug=$(bashio::config 'debug')
-title=$(bashio::config 'title')
-frigate=$(bashio::config 'frigate')
+debug="true"
+title="Home"
+frigate="http://192.168.2.240:5000"
 
 ## Run your program
 exec /writeConfig "${debug}" "${title}" "${frigate}"
