@@ -16,7 +16,7 @@ RUN apk --no-cache add apache2 libxml2-dev apache2-utils py3-pip py3-pillow git 
     pip install sqlite_web && \
     pip install css-html-js-minify && \
     rm -rf /var/www/logs && \
-    git clone https://github.com/beardedtek-com/fevr && mv fevr/docker/fevr/rootfs /
+    git clone https://github.com/beardedtek-com/fevr
 
 # Copy root filesystem
 COPY fevr/docker/fEVR/rootfs /

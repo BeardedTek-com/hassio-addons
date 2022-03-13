@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: fevr
-version: "0.3.30"
+version: "0.3.31"
 slug: fevr
 description: frigate Event Video Recorder v0.3 HASSIO addon
 url: "https://github.com/beardedtek-com/fEVR/"
@@ -25,7 +25,7 @@ panel_admin: false
 panel_icon: "mdi:cctv"
 panel_title: fEVR
 startup: services
-#image: ghcr.io/beardedtek-com/fevr-{arch}
+image: ghcr.io/beardedtek-com/fevr-{arch}
 options:
   debug: "false"
   title: "My Home"
