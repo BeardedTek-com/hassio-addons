@@ -19,7 +19,7 @@ RUN apk --no-cache add apache2 libxml2-dev apache2-utils py3-pip py3-pillow git 
     git clone https://github.com/beardedtek-com/fevr && mv fevr/docker/fevr/rootfs /
 
 # Copy root filesystem
-COPY fevr/docker/fEVR/rootfs /
+COPY fevr/docker/fevr/rootfs /
 
 # Setup CGI Environment & Set Permissions
 RUN chmod +x /opt/fevr/setup/enable_cgi && /opt/fevr/setup/enable_cgi \
