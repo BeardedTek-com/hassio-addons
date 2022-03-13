@@ -13,19 +13,19 @@ arch:
 init: false
 panel_icon: mdi:cctv
 ports:
-  5001/tcp: 5001
-  5002/tcp: 5002
+  5080/tcp: 5080
+  5081/tcp: 5081
 ports_description:
-  5001/tcp: Web Interface
-  5002/tcp: sqlite_web
+  5080/tcp: Web Interface
+  5081/tcp: sqlite_web
 ingress: true
-ingress_port: 5001
+ingress_port: 5080
 ingress_entry: /
 panel_admin: false
 panel_icon: "mdi:cctv"
 panel_title: fEVR
 startup: services
-#image: ghcr.io/beardedtek-com/fevr-{arch}
+image: ghcr.io/beardedtek-com/fevr-{arch}
 options:
   debug: "false"
   title: "My Home"
