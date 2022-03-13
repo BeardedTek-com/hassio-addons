@@ -15,24 +15,14 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN pip install pytz && \
     pip install python-dateutil && \
     pip install requests && \
-    pip install sqlite_web
-
-# get rid of symlink /var/www/logs
-RUN rm -f /var/www/logs
-
-# Copy root filesystem
-COPY rootfs /
-
-# get latest version of fEVR
-RUN git clone https://github.com/beardedtek-com/fevr && mv fevr/app/* /var/www/ \
- && mkdir /var/www/logs && touch /var/www/logs/debug.log \
- && mv /var/www/db/fEVR.blank.sqlite /var/www/db/fEVR.sqlite \
- && mv /var/www/config/config-example.json /var/www/config/config.json
-
-# Setup CGI Environment & Set Permissions
-RUN bash /enable_cgi.sh \
- && chown -R 100:101 /var/www \
- && chmod -R 0770 /var/www \
- && chmod +x /writeConfig
-
-
+    pip install sqlite_web && \
+    pip install css-html-js-minify && \
+    rm -rf /var/www/logs && \
+    git clone https://github.com/beardedtek-com/fevr && \
+    cp -r fevr/docker/fEVR/rootfs/* / && \
+    chmod +x /opt/fevr/setup/enable_cgi && /opt/fevr/setup/enable_cgi && \
+    chown -R 100:1000 /var/www && \
+    chmod -R 0770 /var/www && \
+    chmod -R 0770 /opt/fevr && \
+    chown root:101 /opt/fevr/setup/dbsetperms && \
+    chmod u+s /opt/fevr/setup/dbsetperms
