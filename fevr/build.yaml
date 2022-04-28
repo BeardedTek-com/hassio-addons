@@ -9,6 +9,6 @@ labels:
   org.opencontainers.image.title: "BeardedTek frigate Event Video Recorder"
   org.opencontainers.image.description: "Provides frigate Event Video Recorder as a HASSIO addon"
   org.opencontainers.image.source: "https://github.com/BeardedTek-com/hassio-addons/fevr/"
-  org.opencontainers.image.licenses: "GPL v3"
+  org.opencontainers.image.licenses: "AGPL v3"
 args:
   TEMPIO_VERSION: "2021.09.0"
