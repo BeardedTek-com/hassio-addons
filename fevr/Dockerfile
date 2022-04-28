@@ -11,8 +11,7 @@ RUN curl -sSLf -o /usr/bin/tempio \
     ln -s /usr/bin/python3 /usr/bin/python && \
     git clone https://github.com/beardedtek-com/fevr && \
     chown -R 1000:1000 /fevr
-
+COPY rootfs /
 WORKDIR /fevr
 USER fevr
-
 ENTRYPOINT /fevr/run_fevr.sh
