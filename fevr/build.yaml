@@ -1,10 +1,10 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 build_from:
-  aarch64: "ghcr.io/home-assistant/aarch64-base-python:3.9-alpine3.14"
-  amd64: "ghcr.io/home-assistant/amd64-base-python:3.9-alpine3.14"
-  armhf: "ghcr.io/home-assistant/armhf-base-python:3.9-alpine3.14"
-  armv7: "ghcr.io/home-assistant/armv7-base-python:3.9-alpine3.14"
-  i386: "ghcr.io/home-assistant/i386-base-python:3.9-alpine3.14"
+  aarch64: "ghcr.io/home-assistant/aarch64-base-python:3.10-alpine3.15"
+  amd64: "FROM ghcr.io/home-assistant/amd64-base-python:3.10-alpine3.15"
+  armhf: "ghcr.io/home-assistant/armhf-base-python:3.10-alpine3.15"
+  armv7: "ghcr.io/home-assistant/armv7-base-python:3.10-alpine3.15"
+  i386: "ghcr.io/home-assistant/i386-base-python:3.10-alpine3.15"
 labels:
   org.opencontainers.image.title: "BeardedTek frigate Event Video Recorder"
   org.opencontainers.image.description: "Provides frigate Event Video Recorder as a HASSIO addon"
