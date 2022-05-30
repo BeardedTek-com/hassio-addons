@@ -1,12 +1,23 @@
 #!/bin/bash
 
-# Get Environment Variables
-FEVR_IP="${FEVR_IP:-192.168.100.1}"
-echo ""
-echo ""
-echo "        Starting fEVR on http://$IP_ADDR:5080"
-echo ""
-echo ""
-chown -R 100:101 /var/www/data
-chmod -R 0770 /var/www/data
-httpd -DFOREGROUND
+# Enter our working directory
+cd /fevr
+
+# Check if Virtual Environment is initialized
+[ ! -d "/fevr/venv" ] && \
+    echo "Initializing Virtual Environment" && \
+    python -m venv venv
+
+# Activate Virtual Environment
+echo "Starting Virtual Environment" && \
+source /fevr/venv/bin/activate \
+
+# Install Dependencies
+echo "pip install wheel" && \
+pip install wheel && \
+echo "pip install requirements" && \
+pip install -r /fevr/app/requirements.txt && \
+echo "Done Installing python requirements"
+
+echo "Starting fEVR on port 5180."
+/fevr/venv/bin/flask run -h "0.0.0.0" -p 5180
