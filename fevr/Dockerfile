@@ -9,6 +9,6 @@ RUN curl -sSLf -o /usr/bin/tempio \
     apk --no-cache add py3-pip py3-pillow py3-paho-mqtt py3-requests py3-dotenv git && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     git clone https://github.com/beardedtek-com/fevr
+WORKDIR /fevr
 COPY rootfs /
 RUN chown -R 1000:1000 /fevr
-WORKDIR /fevr
