@@ -10,6 +10,7 @@ arch:
   - aarch64
   - amd64
   - i386
+host_network: true
 init: false
 panel_icon: mdi:cctv
 ports:
